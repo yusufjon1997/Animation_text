@@ -1,0 +1,73 @@
+body {
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: black;
+
+}
+
+.text-effect {
+    position: relative;
+    overflow: hidden;
+    filter : contrast(150%) brightness(1000%);
+}
+
+.text {
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 150px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    background: black;
+    letter-spacing: 5px;
+}
+
+.text::before ,
+.text::after {
+    content: attr(data-text);
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    filter: blur(0.02em);
+}
+
+.text::after {
+    mix-blend-mode:difference;
+}
+
+.gradient ,
+.spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.gradient {
+    background: linear-gradient(0deg, green , white , blue);
+    mix-blend-mode: multiply;
+
+}
+
+.spotlight {
+    top: -100%;
+    left: -100%;
+    background: radial-gradient(circle, white, transparent 25%) 0 0 / 25% 25%, radial-gradient(circle , white , black 25% ) 50% 50% / 12.5% 12.5%;
+    mix-blend-mode: color-dodge;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: translate(50% , 50%);
+    }
+}
