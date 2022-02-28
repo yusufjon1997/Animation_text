@@ -1,2 +1,2 @@
 # Animation_text
-Live : 
+Live : https://yusufjon1997.github.io/Animation_text/
